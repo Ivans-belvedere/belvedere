@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Belvedere</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <style>
+      #mapid {
+        height: 500px;
+      }
+      
+      .header {
+        background-color: #0099cc;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 0 20px;
+      }
+      
+      .marker-popup {
+        max-width: 300px;
+      }
+      
+      .marker-popup img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      Belvedere
+    </div>
+    <div class="container">
+      <div id="mapid"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

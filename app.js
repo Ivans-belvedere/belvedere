@@ -1,25 +1,3 @@
-// Define the locations and their properties
-var locations = [
-  {
-    name: "Statue of Liberty",
-    description: "A gift from the people of France to the people of the United States, the Statue of Liberty is a symbol of freedom and democracy.",
-    image: "https://www.nps.gov/common/uploads/stories/images/nri/20160311/articles/15B6465E-1DD8-B71C-07E5F60DFA3300F7/15B6465E-1DD8-B71C-07E5F60DFA3300F7.jpg?width=750&quality=90&mode=crop",
-    coords: [40.6892, -74.0445]
-  },
-  {
-    name: "Golden Gate Bridge",
-    description: "One of the most internationally recognized symbols of San Francisco, California, and the United States.",
-    image: "https://www.nps.gov/goga/learn/historyculture/images/bridgesa01.jpg?maxwidth=650&autorotate=false",
-    coords: [37.8199, -122.4783]
-  },
-  {
-    name: "Grand Canyon National Park",
-    description: "One of the most breathtaking examples of erosion anywhere in the world.",
-    image: "https://www.nps.gov/grca/planyourvisit/images/2014_Trip_Planning_4.jpg",
-    coords: [36.1069, -112.1126]
-  }
-];
-
 // Initialize the map
 var map = L.map("mapid").setView([37.0902, -95.7129], 4);
 
@@ -39,10 +17,30 @@ map.on("click", function(e) {
   homeMarker.bindPopup("<h3>Home</h3><p>Your home location</p>").openPopup();
 });
 
-// Loop through the locations and add markers to the map
-locations.forEach(function(loc) {
-  var marker = L.marker(loc.coords).addTo(map);
-  
-  // Add a popup to the marker
-  marker.bindPopup("<h3>" + loc.name + "</h3><p>" + loc.description + "</p><img src='" + loc.image + "' alt='" + loc.name + "' width='300'>");
-});
+// Load the locations from a JSON file and add markers to the map
+fetch("locations.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(locations) {
+    locations.forEach(function(loc) {
+      var marker = L.marker(loc.coords).addTo(map);
+
+      // Add a popup to the marker
+      marker.bindPopup("<h3>" + loc.name + "</h3><p>" + loc.description + "</p><img src='" + loc.image + "' alt='" + loc.name + "' width='300'>");
+
+      // Add a click event listener to the marker to display a shortest route between "Home" and the selected marker
+      marker.on("click", function() {
+        if (homeMarker) {
+          var from = homeMarker.getLatLng();
+          var to = marker.getLatLng();
+          var control = L.Routing.control({
+            waypoints: [from, to],
+            routeWhileDragging: true,
+            geocoder: L.Control.Geocoder.nominatim(),
+            router: L.Routing.mapbox("pk.eyJ1IjoibXVoYW1tYWQxMCIsImEiOiJja2pkN2J2Z2EweDNvMnpxdjZpNzB1ajY1In0.M0btWJioYP0oPUf_QLgnug")
+          }).addTo(map);
+        }
+      });
+    });
+  });

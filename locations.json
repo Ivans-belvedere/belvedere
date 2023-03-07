@@ -16,5 +16,11 @@
     "description": "A palace with gardens.",
     "image": "images/3.jpg",
     "coords": [48.19617028738802, 16.37920623084305]
+  },
+  {
+    "name": "Ruine Lauksburg",
+    "description": "A ruin of a medieval castle.",
+    "image": "images/4.jpg",
+    "coords": [50.098835792536086, 7.911768955021241]
   }
 ]

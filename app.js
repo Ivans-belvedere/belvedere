@@ -9,14 +9,12 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // Add a marker for "Home" when the user clicks on the map
 var homeMarker = null;
-var homeLatLng = null;
 map.on("click", function(e) {
   if (homeMarker) {
     map.removeLayer(homeMarker);
   }
   homeMarker = L.marker(e.latlng).addTo(map);
   homeMarker.bindPopup("<h3>Home</h3><p>Your home location</p>").openPopup();
-  homeLatLng = e.latlng;
 });
 
 // Load the locations from the JSON file
@@ -45,22 +43,6 @@ fetch("locations.json")
           animate: true,
           duration: 0.5
         });
-
-        // Show shortest route from home to selected location
-        if (homeLatLng) {
-          var osrmUrl = "http://router.project-osrm.org/route/v1/driving/" + homeLatLng.lng + "," + homeLatLng.lat + ";" + loc.coords[1] + "," + loc.coords[0] + "?overview=full&steps=true";
-          fetch(osrmUrl)
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(data) {
-              var route = L.polyline(L.PolylineUtil.decode(data.routes[0].geometry)).addTo(map);
-              route.bindPopup("<h3>Shortest Route from Home to " + loc.name + "</h3><p>Distance: " + (data.routes[0].distance / 1000).toFixed(1) + " km<br>Duration: " + (data.routes[0].duration / 60).toFixed(0) + " mins</p>");
-              map.fitBounds(route.getBounds(), {
-                padding: [50, 50]
-              });
-            });
-        }
       });
     });
   });

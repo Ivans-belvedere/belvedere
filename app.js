@@ -14,7 +14,7 @@ map.on("click", function(e) {
     map.removeLayer(homeMarker);
   }
   homeMarker = L.marker(e.latlng).addTo(map);
-  homeMarker.bindPopup("<h3>Home</h3><p>Your home location</p>").openPopup();
+  homeMarker.bindPopup("<h3>Home</h3><p>Your have selected this location.</p>").openPopup();
 });
 
 // Load the locations from the JSON file

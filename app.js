@@ -38,7 +38,7 @@ fetch("locations.json")
             windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
             windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-        map.panBy([0, windowHeight*0.8 - markerHeight]);
+        map.panBy([0, windowHeight*0.2 - markerHeight]);
         map.setView(e.latlng, map.getZoom(), {
           animate: true,
           duration: 0.5

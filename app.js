@@ -1,5 +1,5 @@
 // Initialize the map
-var map = L.map("mapid").setView([37.0902, -95.7129], 4);
+var map = L.map("mapid").setView([49.432981933927486, 6.282164813757052], 4);
 
 // Add the tile layer to the map
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

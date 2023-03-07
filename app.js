@@ -29,5 +29,13 @@ fetch("locations.json")
 
       // Add a popup to the marker
       marker.bindPopup("<h3>" + loc.name + "</h3><p>" + loc.description + "</p><img src='" + loc.image + "' alt='" + loc.name + "' width='300'>");
+
+      // Reposition the map when the marker is clicked
+      marker.on("click", function(e) {
+        map.setView(e.latlng, map.getZoom(), {
+          animate: true,
+          duration: 0.5
+        });
+      });
     });
   });

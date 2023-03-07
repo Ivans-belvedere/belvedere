@@ -1,4 +1,4 @@
-[  {    "name": "Statue of Liberty",    "description": "A gift from the people of France to the people of the United States, the Statue of Liberty is a symbol of freedom and democracy.",    "image": "https://www.nps.gov/common/uploads/stories/images/nri/20160311/articles/15B6465E-1DD8-B71C-07E5F60DFA3300F7/15B6465E-1DD8-B71C-07E5F60DFA3300F7.jpg?width=750&quality=90&mode=crop",    "coords": [40.6892, -74.0445]
+{    "name": "Statue of Liberty",    "description": "A gift from the people of France to the people of the United States, the Statue of Liberty is a symbol of freedom and democracy.",    "image": "https://www.nps.gov/common/uploads/stories/images/nri/20160311/articles/15B6465E-1DD8-B71C-07E5F60DFA3300F7/15B6465E-1DD8-B71C-07E5F60DFA3300F7.jpg?width=750&quality=90&mode=crop",    "coords": [40.6892, -74.0445]
   },
   {
     "name": "Golden Gate Bridge",
@@ -12,4 +12,3 @@
     "image": "https://www.nps.gov/grca/planyourvisit/images/2014_Trip_Planning_4.jpg",
     "coords": [36.1069, -112.1126]
   }
-]

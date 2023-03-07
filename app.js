@@ -32,6 +32,13 @@ fetch("locations.json")
 
       // Reposition the map when the marker is clicked
       marker.on("click", function(e) {
+        var markerPoint = map.latLngToContainerPoint(e.latlng),
+            markerWidth = markerPoint.x,
+            markerHeight = markerPoint.y,
+            windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+            windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        map.panBy([0, windowHeight/2 - markerHeight]);
         map.setView(e.latlng, map.getZoom(), {
           animate: true,
           duration: 0.5

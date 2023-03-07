@@ -7,83 +7,51 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
     <style>
-      /* Page layout */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
+      #mapid {
+        height: 80vh;
       }
+      
       .header {
-        background-color: #0099cc;
+        background-color: black;
         color: white;
-        padding: 20px;
+        padding: 10px;
         text-align: center;
         font-size: 36px;
         font-weight: bold;
-        margin-bottom: 20px;
       }
+      
       .container {
         margin: 0 auto;
         max-width: 1000px;
         padding: 0 20px;
       }
-      /* Map */
-      #mapid {
-        height: 80vh;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      }
-      /* Markers */
-      .marker {
-        background-image: url('marker-icon.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 25px;
-        height: 41px;
-        cursor: pointer;
-      }
+      
       .marker-popup {
         max-width: 300px;
-        font-size: 14px;
       }
-      .marker-popup h3 {
-        margin-top: 0;
-        font-size: 18px;
-        font-weight: bold;
-        color: #0099cc;
-      }
+      
       .marker-popup img {
         width: 100%;
-        margin-bottom: 10px;
       }
-      .marker-popup p {
-        margin-top: 0;
-        line-height: 1.5;
-      }
+      
       /* Responsive styles */
       @media (max-width: 767px) {
         .header {
           font-size: 24px;
         }
-        .marker {
-          width: 20px;
-          height: 33px;
-        }
+        
         .marker-popup {
           max-width: 200px;
-          font-size: 12px;
-        }
-        .marker-popup h3 {
-          font-size: 16px;
         }
       }
+      
       @media (min-width: 768px) {
         .header {
           font-size: 36px;
         }
+        
         .marker-popup {
-          max-width: 350px;
+          max-width: 300px;
         }
       }
     </style>
@@ -91,7 +59,6 @@
   <body>
     <div class="header">
       <h1>Belvedere</h1>
-      <p>Discover the world with us!</p>
     </div>
     <div class="container">
       <div id="mapid"></div>

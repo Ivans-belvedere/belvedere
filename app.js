@@ -30,3 +30,4 @@ fetch("locations.json")
       // Add a popup to the marker
       marker.bindPopup("<h3>" + loc.name + "</h3><p>" + loc.description + "</p><img src='" + loc.image + "' alt='" + loc.name + "' width='300'>");
     });
+  });
